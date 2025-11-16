@@ -19,19 +19,21 @@ spec:
   clusterResourceWhitelist:
   - group: ''
     kind: Namespace
-  - group: 'networking.k8s.io'
-    kind: Ingress
   
   # Namespace resource allow list - be very restrictive
   namespaceResourceWhitelist:
   - group: ''
     kind: ConfigMap
+  - group: ''
+    kind: Secret
   - group: 'apps'
     kind: Deployment
   - group: ''
     kind: Service
   - group: ''
     kind: PersistentVolumeClaim
+  - group: 'networking.k8s.io'
+    kind: Ingress
   
   # Resource deny list - prevent dangerous operations
   clusterResourceBlacklist:
