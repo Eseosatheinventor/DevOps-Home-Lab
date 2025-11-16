@@ -46,5 +46,3 @@ spec:
   
   # Signature keys - none for now (we'll add later if needed)
   signatureKeys: []
-
-  # argocd-project.yaml
