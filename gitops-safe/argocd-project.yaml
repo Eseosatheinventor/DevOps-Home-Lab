@@ -10,7 +10,7 @@ spec:
   sourceRepos:
   - 'https://github.com/Eseosatheinventor/DevOps-Home-Lab.git'
   
-  # Destination clusters and namespaces
+  # Destination clusters and namespaces !
   destinations:
   - namespace: humor-game
     server: https://kubernetes.default.svc
