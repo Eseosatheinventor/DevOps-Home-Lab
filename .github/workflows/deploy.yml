@@ -46,10 +46,10 @@ jobs:
           npm run lint
 
   build-and-push:
+    if: false  # Disable direct build and push via GitHub Actions
     name: 🏗️ Build and Push Images
     runs-on: ubuntu-latest
     needs: test
-    if: github.ref == 'refs/heads/main'
     
     steps:
       - name: 📥 Checkout code
@@ -84,10 +84,10 @@ jobs:
           cache-to: type=gha,mode=max
 
   deploy:
+    if: false  # Disable direct deployment via GitHub Actions
     name: 🚀 Deploy to Kubernetes
     runs-on: ubuntu-latest
     needs: build-and-push
-    if: github.ref == 'refs/heads/main'
     
     steps:
       - name: 📥 Checkout code
@@ -130,10 +130,10 @@ jobs:
           kubectl get services -n humor-game
 
   notify:
+    if: false  # Disable direct notifications via GitHub Actions
     name: 📢 Notify Team
     runs-on: ubuntu-latest
     needs: [deploy]
-    if: always()
     
     steps:
       - name: 📢 Slack notification
