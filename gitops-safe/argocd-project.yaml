@@ -47,4 +47,4 @@ spec:
   # Signature keys - none for now (we'll add later if needed)
   signatureKeys: []
 
-  #added this block of code for safety
+  # argocd-project.yaml
