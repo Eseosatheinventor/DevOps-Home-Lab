@@ -6,17 +6,12 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/cors-allow-origin: "*"
     nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
-    # Ensure proper hostname handling for tunnel requests
-    nginx.ingress.kubernetes.io/proxy-set-headers: "true"
     nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
-    nginx.ingress.kubernetes.io/forwarded-for-header: "X-Forwarded-For"
-    nginx.ingress.kubernetes.io/forwarded-proto-header: "X-Forwarded-Proto"
-    nginx.ingress.kubernetes.io/forwarded-host-header: "X-Forwarded-Host"
-    # No SSL redirect for tunnel to prevent loops
 spec:
   ingressClassName: nginx
   rules:
-    - host: prometheus.gameapp.games  # Single-level subdomain (covered by Universal SSL)
+    # Prometheus via Cloudflare Tunnel
+    - host: prometheus.raysosglobal.com
       http:
         paths:
           - path: /
@@ -26,8 +21,9 @@ spec:
                 name: prometheus
                 port:
                   number: 9090
-    
-    - host: grafana.gameapp.games  # Single-level subdomain (covered by Universal SSL)
+
+    # Grafana via Cloudflare Tunnel
+    - host: grafana.raysosglobal.com
       http:
         paths:
           - path: /
